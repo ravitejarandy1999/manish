@@ -1,0 +1,66 @@
+<!Doctype html>
+<html>
+<head>
+    <title>Django website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    {% include "snippets/css.html" %}
+<script>
+
+</script>
+</head>
+<body>
+<div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-1">
+                <div class="card1-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Prediction of selling price of house</h2>
+                    <form action="getPredection" method="post">
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" required="required" placeholder="Overall Qual(1 = Very Poor, 10 = Very Excellent)" name="quality" id="quality">
+                            <span id="Quality"></span>
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" required="required" placeholder="living area square feet" name="living_area" id="living_area">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" required="required" placeholder="Size of garage in car capacity" name="car_size" id="car_size">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" required="required" placeholder="Total square feet of basement area" name="garage_area" id="garage_area">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" required="required" placeholder="First Floor square feet" name="first_floor_area" id="first_floor_area">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" required="required" placeholder="Full bathrooms above grade" name="bathroom" id="bathroom">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" required="required" placeholder="Total rooms above grade " name="rooms" id="rooms">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" required="required" placeholder="Year Built"  name="year" id="year">
+                        </div>
+                        <div class="p-t-20">
+                            <input type="submit" value="Predict selling price" class="btn btn--radius btn--green"  onclick="add(); return false;"/><br><br>
+                        </div>
+                        <br>
+                        <br>
+
+                        <div class="input-group">
+                            {% if results != False %}
+
+                            <label>Predicted price is:{{ results }}</label>
+                            {% endif %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
